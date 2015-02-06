@@ -1,0 +1,11 @@
+<h2>
+  {{ resource.title }}
+  {% if tag %} <small>/ {{ tag.name }}</small>{% endif %}
+</h2>
+
+{% paginate products by 16 %}
+<div class="row">
+  {% loop paginated_list in 'product_item' %}
+</div>
+{{ paginated_list | pagination }}
+{% endpaginate %}

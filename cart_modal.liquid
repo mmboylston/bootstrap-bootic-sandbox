@@ -1,0 +1,118 @@
+<!-- Modal -->
+<div id="cart-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
+</div>
+
+<!-- JavaScript template for ajx cart -->
+<script type="text/html" data-template="cart">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="modal-header clearfix">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">X</span></button>
+            {% if shop.logo %}
+            <img src="{{ shop.logo.tiny }}" class="pull-left bootic_cart_logo" />
+            {% endif %}
+            <h3 class="pull-left bootic_modal_title">%{ units } unidades en el carro</h3>
+            <div class="progress progress-striped active loading hide">
+              <div class="bar" style="width: 100%;"></div>
+            </div>
+          </div>
+          %{hasProducts}
+          <div class="modal-body">
+
+            <table class="table table-striped">
+              <tr>
+                <th>Producto</th>
+                <th>Unidades</th>
+                <th>Precio</th>
+                <th>&nbsp;</th>
+              </tr>
+              %{products}
+              <tr>
+                <td>
+                  %{unavailable}
+                  <a href="#" data-toggle="tooltip" title="{{ 'js_cart.unavailable' | t }}">
+                    <i class="icon-exclamation-sign"></i>
+                  </a>
+                  %{/unavailable}
+                  <!-- (%{ variant_title }) --> <strong>%{ model }</strong>
+                </td>
+                <td>
+                  <input type="text" class="input-mini" value="%{ quantity }" size="2" name="quantity" data-update="%{ variant_id }" />
+                </td>
+                <td>%{ formatted_price }</td>
+                <td>
+                  <a href="#" class="btn btn-danger btn-mini" data-remove="%{ variant_id }" title="{{ 'js_cart.title_remove' | t }}">
+                    <i class="icon-remove"></i>
+                  </a>
+                </td>
+              </tr>
+              %{/products}
+            </table>
+
+            <!-- applied discount info -->
+            %{hasPromotion}
+            <div class="promo">
+              <div class="clearfix">
+                <span class="left">{{ 'js_cart.discount' | t }} "%{ promotion.name}"</span>
+                %{validPromotion}
+                 <strong class="right">- %{promotion.formatted_discount_total}</strong>
+                %{/validPromotion}
+              </div>
+
+              %{validPromotion}
+                %{promotion.free_shipping}
+                <p class="free_shipping">
+                  {{ 'js_cart.free_shipping' | t }}
+                </p>
+                %{/promotion.free_shipping}
+              %{/validPromotion}
+
+              %{invalidPromotion}
+                <div class="invalid_promo alert">
+                  <h5>{{ 'js_cart.non_applicable' | t }}:</h5>
+                  <ul class="promo_errors">
+                   %{promotion.errors}
+                    <li>%{error}</li> 
+                   %{/promotion.errors}
+                  </ul> 
+                </div>
+              %{/invalidPromotion}
+            </div>
+
+            %{/hasPromotion}
+            <!-- /applied discount -->
+
+            <p class="clearfix">
+              <span class="pull-right">
+                Subtotal: 
+                %{validPromotion}
+                  <strike>%{formatted_net_total}</strike>
+                %{/validPromotion}
+                <span class="badge badge-inverse bootic_cart_subtotal">%{ formatted_total }</span>
+              </span>
+            </p>
+
+          </div><!-- /modal body -->
+          <div class="modal-footer">
+            <form action="/cart" method="post">
+              <input type="hidden" name="_method" value="put" />
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Seguir comprando</button>
+              <input type="submit" name="cart_action" class="btn btn-primary" value="{{ 'js_cart.purchase' | t }} »" data-loading-text="..." />
+            </form>
+          </div><!-- /buttons -->
+          %{/hasProducts}
+
+          %{isEmpty}
+          <div class="modal-body">
+           <p class="alert">
+             {{ 'js_cart.empty_cart' | t }}.
+           </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Seguir comprando</button>
+          </div>
+          %{/isEmpty}
+      </div>
+    </div>
+</script>

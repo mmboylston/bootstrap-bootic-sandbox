@@ -1,0 +1,17 @@
+<!-- Featured collection -->
+<div class="jumbotron">
+  <h1>{{ collections.featured.title }}</h1>
+  <div class="lead">
+    {{ collections.featured.body }}
+ </div>
+  <a class="btn btn-large btn-success" href="{{ collections.featured.url }}">Ver colección</a>
+</div>
+
+<hr>
+
+<!-- Example row of columns -->
+{% paginate collections.featured.products by 4 %}
+<div class="row thumbnails">
+    {% loop paginated_list in 'product_item' %}
+</div>
+{% endpaginate %}

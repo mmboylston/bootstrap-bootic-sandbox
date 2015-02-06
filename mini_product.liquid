@@ -1,0 +1,13 @@
+<div class="col-md-3 mini_product">
+  <div class="thumbnail">
+    <a href="{{ mini_product.url }}">
+      <img src="{{ mini_product.first_image | resize: '260x212#c' }}" alt="{{ mini_product.model }}" />
+    </a>
+    <h5 class="clearfix">
+      <span class="pull-left">{{ mini_product.title | truncate:36 }}</span>
+      {% unless mini_product.price.zero %}
+        <span class="badge badge-inverse pull-right price">{{ mini_product.price.format }}</span>
+      {% endunless %}
+    </h5>
+  </div>
+</div>

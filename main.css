@@ -1,0 +1,96 @@
+/*
+ *
+ *  CSS para tu tienda
+ */
+
+.navbar-collapse {
+    padding-left:0 !important;
+    padding:O !important;
+}
+
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.product_description {
+    margin-bottom: 1.5em;
+}
+
+#bootstrap-bootic .product_item {
+    margin-bottom: 2em;
+}
+
+#bootstrap-bootic .list-group-item {
+    padding:0;
+}
+#bootstrap-bootic .list-group-item:hover {
+    background-color: #ededed;
+}
+
+#bootstrap-bootic .list-group-item a {
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+}
+
+
+#bootstrap-bootic .cart_action_buttons input.next, 
+#bootstrap-bootic .add_to_cart input[type="submit"], 
+#bootstrap-bootic .bootic_form input[type="submit"], 
+#bootstrap-bootic .bootic_form input.green, 
+#bootstrap-bootic input.bootic_button {
+    background: none;
+    background-color: #8db86b;
+    border:none;
+    /*color: #346817;*/
+    text-shadow: none;
+    letter-spacing: normal;
+    margin-left: 0;
+}
+
+#bootstrap-bootic .cart_action_buttons input.next:hover, 
+#bootstrap-bootic .add_to_cart input[type="submit"]:hover, 
+#bootstrap-bootic .bootic_form input[type="submit"]:hover, 
+#bootstrap-bootic .bootic_form input.green:hover, 
+#bootstrap-bootic input.bootic_button:hover {
+    background-color: #638740;
+}
+
+
+
+
+
+ 
+
+#bootstrap-bootic .btn-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+}
+#bootstrap-bootic .btn {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+#bootstrap-bootic button, #bootstrap-bootic input, #bootstrap-bootic select, #bootstrap-bootic textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+#bootstrap-bootic .thumbnail {
+  position: relative;
+  padding:10px;
+}

@@ -1,0 +1,29 @@
+<div class="col-lg-6 col-md-6 col-sm-6 product_column">
+  <div class="product_item thumbnail">
+    <a href="{{ product_item.url }}">
+      <img src="{{ product_item.first_image | resize: '360x260#c' }}" alt="{{ product_item.model }}" style="width:100%;height:auto" />
+    </a>
+    <h3 class="clearfix">
+      <span class="pull-left">
+        {{ product_item.title | truncate:36 }}
+        <small>{{ product_item.vendor.name }}</small>
+      </span>
+      
+      {% unless product_item.price.zero %}
+        <span class="prices">
+          {% if product_item.has_price_comparison %}
+            <span class="badge price_comparison"><strike>{{ product_item.price_comparison.format }}</strike></span>
+          {% endif %}
+          <span class="badge badge-inverse price">{{ product_item.price.format }}</span>
+        </span>
+      {% endunless %}
+    </h3>
+    <p>
+      {{ product_item.description | strip_html | truncate: 90 }}
+    </p>
+    <div class="clearfix">
+      {% add_to_cart_no_variants for product_item %}
+      <a href="{{ product_item.url }}" class="btn btn-xs pull-right">Ver más <span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+  </div>
+</div>

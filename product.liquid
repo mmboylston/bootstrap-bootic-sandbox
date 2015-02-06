@@ -1,0 +1,112 @@
+<div class="row">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <div class="col-md-5">
+   
+   
+   
+   
+    <div id="product_carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        {% for image in product.images %}
+          <li data-target="#myCarousel" data-slide-to="{{ forloop.index }}" class="{% if forloop.index == 1 %}active{% endif %}"></li>
+        {% endfor %}
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        {% for image in product.images %}
+        <div class="item{% if forloop.index == 1 %} active{% endif %}">
+          <img src="{{ image | resize: '500x500' }}" alt="{{ image.title }}" />
+        </div>
+        {% endfor %}
+      </div>
+      {% if product.images.size > 1 %}
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#product_carousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#product_carousel" data-slide="next">&rsaquo;</a>
+      {% endif %}
+    </div><!-- /carousel -->
+    
+  </div><!-- /carousel column --> 
+  
+  
+  
+  
+  
+  <div class="col-md-7 product_attributes">
+    <h2 class="product_title">
+      {{ product.title }}
+      <small>{{ product.vendor.name | truncate: 15 }}</small>
+    </h2>
+    
+    <div class="product_description">
+        {{ product.description }}
+    </div>
+    
+
+    {% if product.product_type %}
+    <table class="table table-striped">
+      {% unless product.price.zero %}
+      {% if product.has_price_comparison %}
+      <tr>
+        <th>Precio anterior</th>
+        <td>
+          <strike>{{ product.price_comparison.format }}</strike>
+        </td>
+      </tr>
+      {% endif %}
+      <tr class="product_price">
+        <th>Precio</th>
+        <td>
+          <big class="badge badge-inverse price">{{ product.price.format }}</big>  
+        </td>
+      </tr>
+      {% endunless %}
+      {% for field in product.attributes %}
+        <tr id="attribute-{{field.key}}">
+          <th>{{ field.name }}</th>
+          <td>{{ field.value }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    
+    <div class="cart-box">
+      {% add_to_cart %}
+    </div>
+  </div><!-- /product attributes -->
+  
+ 
+  
+  
+  
+  
+</div><!-- /carousel and attributes -->
+
+
+
+
+
+
+
+
+
+
+  
+<!-- show 3 similar products (with matching tags) if any -->
+{% if product.has_similar_products %}
+  <h3>Productos similares</h3>
+  <div class="row thumbnails">
+    {% loop product.similar_products in 'mini_product' limit:3 %}
+  </div><!-- /similar-products -->
+{% endif %}
