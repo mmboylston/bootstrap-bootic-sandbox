@@ -1,6 +1,6 @@
 /*
 -----------------------------------------
-Theme Name: Base
+Theme Name: Base (Bootstrap 3)
 Theme URI: http://bootic.net
 Version: 0.1
 Author: Ismael Celis
@@ -9,6 +9,7 @@ Author: Ismael Celis
 body {
   padding-top: 20px;
   padding-bottom: 60px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Custom container */
@@ -16,6 +17,7 @@ body {
   margin: 0 auto;
   max-width: 1000px;
 }
+
 .container > hr {
   margin: 60px 0;
 }
@@ -25,14 +27,17 @@ body {
   margin: 80px 0;
   text-align: center;
 }
+
 .jumbotron h1 {
   font-size: 100px;
   line-height: 1;
 }
+
 .jumbotron .lead {
   font-size: 24px;
   line-height: 1.25;
 }
+
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
@@ -42,98 +47,120 @@ body {
 .marketing {
   margin: 60px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
 
-
-/* Customize the navbar links to be fill the entire space of the .navbar */
+/* Customize the navbar links to be fill the entire space of the .navbar
 .navbar .navbar-inner {
   padding: 0;
 }
+
 .navbar .nav {
   margin: 0;
   display: table;
   width: 100%;
 }
+
 .navbar .nav li {
   display: table-cell;
   width: 1%;
   float: none;
 }
+
 .navbar .nav li a {
   font-weight: bold;
   text-align: center;
-  border-left: 1px solid rgba(255,255,255,.75);
-  border-right: 1px solid rgba(0,0,0,.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .navbar .nav li:first-child a {
   border-left: 0;
   border-radius: 3px 0 0 3px;
 }
+
 .navbar .nav li:last-child a {
   border-right: 0;
   border-radius: 0 3px 3px 0;
 }
 
+ */
+
 /* product in lists
 -------------------------------------*/
 .thumbnail {
- position: relative; 
+  position: relative;
 }
+
 .thumbnail .prices {
   position: absolute;
-  margin:0;
-  z-index:2;
+  margin: 0;
+  z-index: 2;
   top: 0;
   right: 10px;
 }
+
 /* cart and cart buttons
 -------------------------------------*/
 .container form.add_to_cart {
   margin-left: 0;
   margin-bottom: 0;
 }
+
 .container form.add_to_cart label {
-  display: inline; 
+  display: inline;
 }
+
 .container form.add_to_cart input[type=radio] {
- position: static;
- margin: 0; 
+  position: static;
+  margin: 0;
 }
-.add_to_cart .loading { display: none; float:right; }
-.add_to_cart.bootic_cart_adding .loading { display: inline-block; }
+
+.add_to_cart .loading {
+  display: none;
+  float: right;
+}
+
+.add_to_cart.bootic_cart_adding .loading {
+  display: inline-block;
+}
 
 /* loading bar in cart modal
 -------------------------------------*/
 .modal-header .loading {
- float: right;
- margin-bottom: 0;
- margin-top: 20px;
- width: 100px;
+  float: right;
+  margin-bottom: 0;
+  margin-top: 20px;
+  width: 100px;
 }
+
 /* Product detail
 -------------------------------------*/
 .product_attributes .price {
- font-size: 16px;
- padding-top: .3em;
- padding-bottom: .3em;
+  font-size: 16px;
+  padding-top: .3em;
+  padding-bottom: .3em;
 }
 
 .product_attributes .product_title {
   font-size: 24px;
-  margin-top: 0; 
+  margin-top: 0;
 }
 
 /* Fix bootstrap modal
 ----------------------------------*/
-.modal.fade { top: -70%; }
-.modal-footer form { margin-bottom: 0; }
-.modal-header .bootic_modal_title { margin-top: 12px; }
+.modal.fade {
+  /* top: -70%; */
+}
 
+.modal-footer form {
+  margin-bottom: 0;
+}
 
-.hola_sass {display:none;}
-
-.hellow_sass {display:none;}
+.modal-header .bootic_modal_title {
+  margin-top: 12px;
+}
 
 
